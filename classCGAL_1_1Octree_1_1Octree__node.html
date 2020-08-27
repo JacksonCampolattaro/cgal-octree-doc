@@ -1,0 +1,501 @@
+<!-- HTML header for doxygen 1.8.13-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png"/>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CGAL 5.1 - Octree: CGAL::Octree::Octree_node&lt; Kernel, PointRange &gt; Class Template Reference</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+//<![CDATA[
+MathJax.Hub.Config(
+{
+  TeX: {
+      Macros: {
+          qprel: [ "{\\gtreqless}", 0],
+          qpx: [ "{\\mathbf{x}}", 0],
+          qpl: [ "{\\mathbf{l}}", 0],
+          qpu: [ "{\\mathbf{u}}", 0],
+          qpc: [ "{\\mathbf{c}}", 0],
+          qpb: [ "{\\mathbf{b}}", 0],
+          qpy: [ "{\\mathbf{y}}", 0],
+          qpw: [ "{\\mathbf{w}}", 0],
+          qplambda: [ "{\\mathbf{\\lambda}}", 0],
+          ssWpoint: [ "{\\bf #1}", 1],
+          ssWeight: [ "{w_{#1}}", 1],
+          dabs: [ "{\\parallel\\! #1 \\!\\parallel}", 1],
+          E: [ "{\\mathrm{E}}", 0],
+          A: [ "{\\mathrm{A}}", 0],
+          R: [ "{\\mathrm{R}}", 0],
+          N: [ "{\\mathrm{N}}", 0],
+          Q: [ "{\\mathrm{Q}}", 0],
+          Z: [ "{\\mathrm{Z}}", 0],
+          ccSum: [ "{\\sum_{#1}^{#2}{#3}}", 3],
+          ccProd: [ "{\\prod_{#1}^{#2}{#3}}", 3],
+          pyr: [ "{\\operatorname{Pyr}}", 0],
+          aff: [ "{\\operatorname{aff}}", 0],
+      }
+  }
+}
+);
+//]]>
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png"
+           onmouseover="return searchBox.OnSearchSelectShow()"
+           onmouseout="return searchBox.OnSearchSelectHide()"
+           alt=""/>
+      <input type="text" id="MSearchField" value="Search" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)"
+             onblur="searchBox.OnSearchFieldFocus(false)"
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt=""/></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 5.1 - Octree
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0"
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.17 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classCGAL_1_1Octree_1_1Octree__node.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="classCGAL_1_1Octree_1_1Octree__node-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">CGAL::Octree::Octree_node&lt; Kernel, PointRange &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__PkgOctreeClasses.html">Classes</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;CGAL/Octree/Octree_node.h&gt;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Definition</h2>
+<div class="textblock"><h3>template&lt;class Kernel, class PointRange&gt;<br />
+class CGAL::Octree::Octree_node&lt; Kernel, PointRange &gt;</h3>
+
+<p>A class representing a single node of the tree. Alternatively referred to as a cell, octant, or subtree. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>The role of the Node isn't fully stable yet</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Template parameters may be changed in the future </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Kernel</td><td></td></tr>
+    <tr><td class="paramname">PointRange</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Types</h2></td></tr>
+<tr class="memitem:a97fb4e389b72be577aa11ab6e5e77c99"><td class="memItemLeft" align="right" valign="top">typedef std::array&lt; uint32_t, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html#a97fb4e389b72be577aa11ab6e5e77c99">IntPoint</a></td></tr>
+<tr class="memdesc:a97fb4e389b72be577aa11ab6e5e77c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">The indices of this node at various levels of the tree, condensed to integer types.  <a href="classCGAL_1_1Octree_1_1Octree__node.html#a97fb4e389b72be577aa11ab6e5e77c99">More...</a><br /></td></tr>
+<tr class="separator:a97fb4e389b72be577aa11ab6e5e77c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a796774b7fbf0613413462fecfbe32cf1"><td class="memItemLeft" align="right" valign="top">typedef std::array&lt; <a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Node</a>, 8 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html#a796774b7fbf0613413462fecfbe32cf1">ChildList</a></td></tr>
+<tr class="memdesc:a796774b7fbf0613413462fecfbe32cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of sub-nodes.  <a href="classCGAL_1_1Octree_1_1Octree__node.html#a796774b7fbf0613413462fecfbe32cf1">More...</a><br /></td></tr>
+<tr class="separator:a796774b7fbf0613413462fecfbe32cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Construction, Destruction</h2></td></tr>
+<tr class="memitem:aa924d308e1b96b806d46a5e084bae2c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html#aa924d308e1b96b806d46a5e084bae2c1">Octree_node</a> (<a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Node</a> *parent=nullptr)</td></tr>
+<tr class="separator:aa924d308e1b96b806d46a5e084bae2c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab244ebc3efab14c1849901ee5ad60f58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html#ab244ebc3efab14c1849901ee5ad60f58">~Octree_node</a> ()</td></tr>
+<tr class="memdesc:ab244ebc3efab14c1849901ee5ad60f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a node by recursively deleting all of its children.  <a href="classCGAL_1_1Octree_1_1Octree__node.html#ab244ebc3efab14c1849901ee5ad60f58">More...</a><br /></td></tr>
+<tr class="separator:ab244ebc3efab14c1849901ee5ad60f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Mutators</h2></td></tr>
+<tr class="memitem:affe0a0a24327b20b06dc1d0119d97e33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html#affe0a0a24327b20b06dc1d0119d97e33">unsplit</a> ()</td></tr>
+<tr class="memdesc:affe0a0a24327b20b06dc1d0119d97e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eliminate this node's children, making it a leaf node.  <a href="classCGAL_1_1Octree_1_1Octree__node.html#affe0a0a24327b20b06dc1d0119d97e33">More...</a><br /></td></tr>
+<tr class="separator:affe0a0a24327b20b06dc1d0119d97e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a682fc897a15ba8d54739d94680567ac0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html#a682fc897a15ba8d54739d94680567ac0">split</a> ()</td></tr>
+<tr class="memdesc:a682fc897a15ba8d54739d94680567ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split a node into subnodes.  <a href="classCGAL_1_1Octree_1_1Octree__node.html#a682fc897a15ba8d54739d94680567ac0">More...</a><br /></td></tr>
+<tr class="separator:a682fc897a15ba8d54739d94680567ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Child Accessors</h2></td></tr>
+<tr class="memitem:a342d67514996b345d81671340b01b09a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Node</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html#a342d67514996b345d81671340b01b09a">operator[]</a> (int index)</td></tr>
+<tr class="memdesc:a342d67514996b345d81671340b01b09a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the child nodes of this node by their indices.  <a href="classCGAL_1_1Octree_1_1Octree__node.html#a342d67514996b345d81671340b01b09a">More...</a><br /></td></tr>
+<tr class="separator:a342d67514996b345d81671340b01b09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae436f0589c4e7466b34feb27b565a8e4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Node</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html#ae436f0589c4e7466b34feb27b565a8e4">operator[]</a> (int index) const</td></tr>
+<tr class="memdesc:ae436f0589c4e7466b34feb27b565a8e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read-only access the child nodes of this node by their indices.  <a href="classCGAL_1_1Octree_1_1Octree__node.html#ae436f0589c4e7466b34feb27b565a8e4">More...</a><br /></td></tr>
+<tr class="separator:ae436f0589c4e7466b34feb27b565a8e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Content Accessors</h2></td></tr>
+<tr class="memitem:a33a24f5acd51509b6e5f2f0a9d7b0e82"><td class="memItemLeft" align="right" valign="top"><a id="a33a24f5acd51509b6e5f2f0a9d7b0e82"></a>
+Range_iterator &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<tr class="separator:a33a24f5acd51509b6e5f2f0a9d7b0e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a598e392665fe6c0173b5aba213ce91"><td class="memItemLeft" align="right" valign="top"><a id="a2a598e392665fe6c0173b5aba213ce91"></a>
+const Range_iterator &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> () const</td></tr>
+<tr class="separator:a2a598e392665fe6c0173b5aba213ce91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1eceb205ee0c421ad2d1587490c5e39"><td class="memItemLeft" align="right" valign="top"><a id="ab1eceb205ee0c421ad2d1587490c5e39"></a>
+Range_iterator &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
+<tr class="separator:ab1eceb205ee0c421ad2d1587490c5e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b25ad9e5b75bf2223d37edf920f26cc"><td class="memItemLeft" align="right" valign="top"><a id="a7b25ad9e5b75bf2223d37edf920f26cc"></a>
+const Range_iterator &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () const</td></tr>
+<tr class="separator:a7b25ad9e5b75bf2223d37edf920f26cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Property Accessors</h2></td></tr>
+<tr class="memitem:a4d3cf0005560f84102e99f161c2ce86e"><td class="memItemLeft" align="right" valign="top"><a id="a4d3cf0005560f84102e99f161c2ce86e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_leaf</b> () const</td></tr>
+<tr class="separator:a4d3cf0005560f84102e99f161c2ce86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcd220ec4a6d2205965ecd38925f9c6f"><td class="memItemLeft" align="right" valign="top"><a id="adcd220ec4a6d2205965ecd38925f9c6f"></a>
+const <a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b> () const</td></tr>
+<tr class="separator:adcd220ec4a6d2205965ecd38925f9c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15f54d9bec3c7d1893b80afcecc183ed"><td class="memItemLeft" align="right" valign="top"><a id="a15f54d9bec3c7d1893b80afcecc183ed"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>num_points</b> () const</td></tr>
+<tr class="separator:a15f54d9bec3c7d1893b80afcecc183ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2ca486184e501d1a8703309b70bbc4c"><td class="memItemLeft" align="right" valign="top"><a id="ae2ca486184e501d1a8703309b70bbc4c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_empty</b> () const</td></tr>
+<tr class="separator:ae2ca486184e501d1a8703309b70bbc4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51663d63d664ed04fa3756af23347070"><td class="memItemLeft" align="right" valign="top"><a id="a51663d63d664ed04fa3756af23347070"></a>
+const <a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html#a97fb4e389b72be577aa11ab6e5e77c99">IntPoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>location</b> () const</td></tr>
+<tr class="separator:a51663d63d664ed04fa3756af23347070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84d49f59b4f8ed3151702de90a92f782"><td class="memItemLeft" align="right" valign="top"><a id="a84d49f59b4f8ed3151702de90a92f782"></a>
+const uint8_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b> () const</td></tr>
+<tr class="separator:a84d49f59b4f8ed3151702de90a92f782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a589d887549cd8d3e0f3a2ff275c3d60b"><td class="memItemLeft" align="right" valign="top"><a id="a589d887549cd8d3e0f3a2ff275c3d60b"></a>
+std::bitset&lt; 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>index</b> () const</td></tr>
+<tr class="separator:a589d887549cd8d3e0f3a2ff275c3d60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Operators</h2></td></tr>
+<tr class="memitem:a19a4ef991db46bc8f89c917733b298af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html#a19a4ef991db46bc8f89c917733b298af">operator==</a> (<a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Node</a> &amp;rhs) const</td></tr>
+<tr class="memdesc:a19a4ef991db46bc8f89c917733b298af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares the topology of a pair of nodes.  <a href="classCGAL_1_1Octree_1_1Octree__node.html#a19a4ef991db46bc8f89c917733b298af">More...</a><br /></td></tr>
+<tr class="separator:a19a4ef991db46bc8f89c917733b298af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a796774b7fbf0613413462fecfbe32cf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a796774b7fbf0613413462fecfbe32cf1">&#9670;&nbsp;</a></span>ChildList</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class PointRange &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::array&lt;<a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Node</a>, 8&gt; <a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">CGAL::Octree::Octree_node</a>&lt; Kernel, PointRange &gt;::<a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html#a796774b7fbf0613413462fecfbe32cf1">ChildList</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A list of sub-nodes. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a97fb4e389b72be577aa11ab6e5e77c99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97fb4e389b72be577aa11ab6e5e77c99">&#9670;&nbsp;</a></span>IntPoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class PointRange &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::array&lt;uint32_t, 3&gt; <a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">CGAL::Octree::Octree_node</a>&lt; Kernel, PointRange &gt;::<a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html#a97fb4e389b72be577aa11ab6e5e77c99">IntPoint</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The indices of this node at various levels of the tree, condensed to integer types. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>This warrants further explanation </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa924d308e1b96b806d46a5e084bae2c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa924d308e1b96b806d46a5e084bae2c1">&#9670;&nbsp;</a></span>Octree_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class PointRange &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">CGAL::Octree::Octree_node</a>&lt; Kernel, PointRange &gt;::<a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Octree_node</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>nullptr</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ab244ebc3efab14c1849901ee5ad60f58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab244ebc3efab14c1849901ee5ad60f58">&#9670;&nbsp;</a></span>~Octree_node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class PointRange &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">CGAL::Octree::Octree_node</a>&lt; Kernel, PointRange &gt;::~<a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Octree_node</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete a node by recursively deleting all of its children. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd></dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a19a4ef991db46bc8f89c917733b298af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19a4ef991db46bc8f89c917733b298af">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class PointRange &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">CGAL::Octree::Octree_node</a>&lt; Kernel, PointRange &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Node</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compares the topology of a pair of nodes. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>Maybe this should compare more than just the topology</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a342d67514996b345d81671340b01b09a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a342d67514996b345d81671340b01b09a">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class PointRange &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Node</a>&amp; <a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">CGAL::Octree::Octree_node</a>&lt; Kernel, PointRange &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Access the child nodes of this node by their indices. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ae436f0589c4e7466b34feb27b565a8e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae436f0589c4e7466b34feb27b565a8e4">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class PointRange &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Node</a>&amp; <a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">CGAL::Octree::Octree_node</a>&lt; Kernel, PointRange &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read-only access the child nodes of this node by their indices. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a682fc897a15ba8d54739d94680567ac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a682fc897a15ba8d54739d94680567ac0">&#9670;&nbsp;</a></span>split()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class PointRange &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">CGAL::Octree::Octree_node</a>&lt; Kernel, PointRange &gt;::split </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Split a node into subnodes. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="affe0a0a24327b20b06dc1d0119d97e33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affe0a0a24327b20b06dc1d0119d97e33">&#9670;&nbsp;</a></span>unsplit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Kernel , class PointRange &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">CGAL::Octree::Octree_node</a>&lt; Kernel, PointRange &gt;::unsplit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Eliminate this node's children, making it a leaf node. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>This might not be less necessary because of my use of smart pointers </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>CGAL</b></li><li class="navelem"><b>Octree</b></li><li class="navelem"><a class="el" href="classCGAL_1_1Octree_1_1Octree__node.html">Octree_node</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</div>
+</body>
+</html>
