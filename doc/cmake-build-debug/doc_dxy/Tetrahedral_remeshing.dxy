@@ -1,0 +1,16 @@
+@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Tetrahedral_remeshing_defaults.dxy
+PROJECT_NAME = "CGAL 5.1 - Tetrahedral Remeshing"
+
+#custom options for this package
+EXTRACT_ALL          = false
+HIDE_UNDOC_CLASSES   = true
+WARN_IF_UNDOCUMENTED = false
+
+EXAMPLE_PATH += /home/jackcamp/Documents/cgal-public-dev/Tetrahedral_remeshing/examples
+
+EXCLUDE = /home/jackcamp/Documents/cgal-public-dev/Tetrahedral_remeshing/include//CGAL/Tetrahedral_remeshing/internal
+
+#MACRO_EXPANSION        = YES
+#EXPAND_ONLY_PREDEF     = YES
+#EXPAND_AS_DEFINED      = CGAL_PMP_NP_TEMPLATE_PARAMETERS \
+#                         CGAL_PMP_NP_CLASS

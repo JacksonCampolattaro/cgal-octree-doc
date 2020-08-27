@@ -1,0 +1,19 @@
+@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/BaseDoxyfile
+OUTPUT_DIRECTORY = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_output/Set_movable_separability_2
+HTML_OUTPUT = .
+EXAMPLE_PATH = /home/jackcamp/Documents/cgal-public-dev/Set_movable_separability_2/examples
+GENERATE_TAGFILE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_gen_tags/Set_movable_separability_2.tag
+STRIP_FROM_PATH = /home/jackcamp/Documents/cgal-public-dev/Set_movable_separability_2/doc/Set_movable_separability_2/
+STRIP_FROM_PATH += /home/jackcamp/Documents/cgal-public-dev/Set_movable_separability_2/include/
+STRIP_FROM_INC_PATH = /home/jackcamp/Documents/cgal-public-dev/Set_movable_separability_2/doc/Set_movable_separability_2/
+STRIP_FROM_INC_PATH += /home/jackcamp/Documents/cgal-public-dev/Set_movable_separability_2/include/
+ALIASES += "cgalPkgDescriptionBegin{2}=\details "
+ALIASES += "cgalPkgManuals{2}=<div class=\"PkgManuals\"></div>"
+INPUT = /home/jackcamp/Documents/cgal-public-dev/Set_movable_separability_2/doc/Set_movable_separability_2
+TAGFILES += /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_tags/Manual.tag=../Manual
+TAGFILES += /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_tags/Kernel_23.tag=../Kernel_23
+TAGFILES += /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_tags/Circulator.tag=../Circulator
+TAGFILES += /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_tags/Number_types.tag=../Number_types
+TAGFILES += /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_tags/Polygon.tag=../Polygon
+TAGFILES += /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_tags/Boolean_set_operations_2.tag=../Boolean_set_operations_2
+IMAGE_PATH += /home/jackcamp/Documents/cgal-public-dev/Set_movable_separability_2/doc/Set_movable_separability_2/fig

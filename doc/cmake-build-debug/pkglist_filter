@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec /usr/bin/python /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/pkglist_filter.py "$1"

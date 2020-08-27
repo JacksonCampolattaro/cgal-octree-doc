@@ -1,0 +1,14 @@
+@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/BaseDoxyfile
+OUTPUT_DIRECTORY = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_output/Octree
+HTML_OUTPUT = .
+EXAMPLE_PATH = /home/jackcamp/Documents/cgal-public-dev/Octree/examples
+GENERATE_TAGFILE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_gen_tags/Octree.tag
+STRIP_FROM_PATH = /home/jackcamp/Documents/cgal-public-dev/Octree/doc/Octree/
+STRIP_FROM_PATH += /home/jackcamp/Documents/cgal-public-dev/Octree/include/
+STRIP_FROM_INC_PATH = /home/jackcamp/Documents/cgal-public-dev/Octree/doc/Octree/
+STRIP_FROM_INC_PATH += /home/jackcamp/Documents/cgal-public-dev/Octree/include/
+ALIASES += "cgalPkgDescriptionBegin{2}=\details "
+ALIASES += "cgalPkgManuals{2}=<div class=\"PkgManuals\"></div>"
+INPUT = /home/jackcamp/Documents/cgal-public-dev/Octree/doc/Octree
+INPUT += /home/jackcamp/Documents/cgal-public-dev/Octree/include/
+IMAGE_PATH += /home/jackcamp/Documents/cgal-public-dev/Octree/doc/Octree/fig
