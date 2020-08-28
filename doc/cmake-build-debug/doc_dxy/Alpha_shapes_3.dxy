@@ -1,6 +1,0 @@
-@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Alpha_shapes_3_defaults.dxy
-
-PROJECT_NAME = "CGAL 5.1 - 3D Alpha Shapes"
-
-EXAMPLE_PATH =  /home/jackcamp/Documents/cgal-public-dev/Alpha_shapes_2/examples \
-                /home/jackcamp/Documents/cgal-public-dev/Alpha_shapes_3/examples

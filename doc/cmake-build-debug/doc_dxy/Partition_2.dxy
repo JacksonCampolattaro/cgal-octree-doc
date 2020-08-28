@@ -1,3 +1,0 @@
-@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Partition_2_defaults.dxy
-
-PROJECT_NAME = "CGAL 5.1 - 2D Polygon Partitioning"

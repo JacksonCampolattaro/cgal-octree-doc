@@ -1,6 +1,0 @@
-@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Property_map_defaults.dxy
-
-PROJECT_NAME = "CGAL 5.1 - CGAL and Boost Property Maps"
-INPUT += /home/jackcamp/Documents/cgal-public-dev/Property_map/include//CGAL/property_map.h
-EXCLUDE += /home/jackcamp/Documents/cgal-public-dev/Property_map/include//CGAL/Dynamic_property_map.h
-EXAMPLE_PATH += /home/jackcamp/Documents/cgal-public-dev/Point_set_processing_3/examples

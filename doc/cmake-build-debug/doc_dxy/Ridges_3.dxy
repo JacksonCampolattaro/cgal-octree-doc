@@ -1,3 +1,0 @@
-@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Ridges_3_defaults.dxy
-
-PROJECT_NAME = "CGAL 5.1 - Approximation of Ridges and Umbilics on Triangulated Surface Meshes"

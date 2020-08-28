@@ -1,3 +1,0 @@
-@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Nef_3_defaults.dxy
-
-PROJECT_NAME = "CGAL 5.1 - 3D Boolean Operations on Nef Polyhedra"

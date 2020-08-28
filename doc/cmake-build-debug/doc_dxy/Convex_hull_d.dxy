@@ -1,3 +1,0 @@
-@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Convex_hull_d_defaults.dxy
-
-PROJECT_NAME = "CGAL 5.1 - dD Convex Hulls and Delaunay Triangulations"

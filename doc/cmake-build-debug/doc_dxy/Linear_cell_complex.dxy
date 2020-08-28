@@ -1,3 +1,0 @@
-@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Linear_cell_complex_defaults.dxy
-
-PROJECT_NAME = "CGAL 5.1 - Linear Cell Complex"

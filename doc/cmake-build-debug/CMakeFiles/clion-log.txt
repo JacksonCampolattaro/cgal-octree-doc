@@ -1,4 +1,0 @@
-/home/jackcamp/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/202.6397.106/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -G "CodeBlocks - Unix Makefiles" /home/jackcamp/Documents/cgal-public-dev/Documentation/doc
--- Configuring done
--- Generating done
--- Build files have been written to: /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug

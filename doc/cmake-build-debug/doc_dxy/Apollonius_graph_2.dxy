@@ -1,9 +1,0 @@
-@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Apollonius_graph_2_defaults.dxy
-
-PROJECT_NAME = "CGAL 5.1 - 2D Apollonius Graphs (Delaunay Graphs of Disks)"
-EXCLUDE_SYMBOLS +=  Agvb
-
-            
-
-
-
