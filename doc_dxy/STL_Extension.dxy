@@ -1,0 +1,6 @@
+@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/STL_Extension_defaults.dxy
+
+PROJECT_NAME = "CGAL 5.1 - STL Extensions for CGAL"
+
+INPUT += /home/jackcamp/Documents/cgal-public-dev/STL_Extension/include//CGAL/value_type_traits.h
+INPUT += /home/jackcamp/Documents/cgal-public-dev/STL_Extension/include//CGAL/functional.h

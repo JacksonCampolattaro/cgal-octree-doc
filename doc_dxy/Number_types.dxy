@@ -1,0 +1,7 @@
+@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Number_types_defaults.dxy
+
+PROJECT_NAME = "CGAL 5.1 - Number Types"
+INPUT += /home/jackcamp/Documents/cgal-public-dev/Number_types/include//CGAL/Exact_integer.h \
+         /home/jackcamp/Documents/cgal-public-dev/Number_types/include//CGAL/Exact_rational.h
+
+SHOW_FILES = YES

@@ -1,0 +1,3 @@
+@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Surface_mesh_simplification_defaults.dxy
+
+PROJECT_NAME = "CGAL 5.1 - Triangulated Surface Mesh Simplification"

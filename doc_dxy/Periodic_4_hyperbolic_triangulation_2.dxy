@@ -1,0 +1,22 @@
+@INCLUDE 				= /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Periodic_4_hyperbolic_triangulation_2_defaults.dxy
+
+EXAMPLE_PATH 			= /home/jackcamp/Documents/cgal-public-dev/Periodic_4_hyperbolic_triangulation_2/examples
+
+EXTRACT_ALL  			= YES
+EXTRACT_LOCAL_CLASSES  	= YES
+INHERIT_DOCS           	= YES
+
+HTML_EXTRA_FILES = 	/home/jackcamp/Documents/cgal-public-dev/Periodic_4_hyperbolic_triangulation_2/doc/Periodic_4_hyperbolic_triangulation_2/fig/octagon_identification.svg \
+					/home/jackcamp/Documents/cgal-public-dev/Periodic_4_hyperbolic_triangulation_2/doc/Periodic_4_hyperbolic_triangulation_2/fig/original_domain.svg \
+					/home/jackcamp/Documents/cgal-public-dev/Periodic_4_hyperbolic_triangulation_2/doc/Periodic_4_hyperbolic_triangulation_2/fig/periodicity.png \
+					/home/jackcamp/Documents/cgal-public-dev/Periodic_4_hyperbolic_triangulation_2/doc/Periodic_4_hyperbolic_triangulation_2/fig/dt-construction.svg \
+					/home/jackcamp/Documents/cgal-public-dev/Periodic_4_hyperbolic_triangulation_2/doc/Periodic_4_hyperbolic_triangulation_2/fig/periodic_face.svg \
+					/home/jackcamp/Documents/cgal-public-dev/Periodic_4_hyperbolic_triangulation_2/doc/Periodic_4_hyperbolic_triangulation_2/fig/ds_cgal.svg \
+					/home/jackcamp/Documents/cgal-public-dev/Periodic_4_hyperbolic_triangulation_2/doc/Periodic_4_hyperbolic_triangulation_2/fig/dummy-points.png \
+					/home/jackcamp/Documents/cgal-public-dev/Periodic_4_hyperbolic_triangulation_2/doc/Periodic_4_hyperbolic_triangulation_2/fig/non-triangulation.svg \
+					/home/jackcamp/Documents/cgal-public-dev/Periodic_4_hyperbolic_triangulation_2/doc/Periodic_4_hyperbolic_triangulation_2/fig/histogram-dummy-points.png \
+					/home/jackcamp/Documents/cgal-public-dev/Periodic_4_hyperbolic_triangulation_2/doc/Periodic_4_hyperbolic_triangulation_2/fig/new-triangulation-350px.png
+
+HTML_EXTRA_STYLESHEET = /home/jackcamp/Documents/cgal-public-dev/Periodic_4_hyperbolic_triangulation_2/doc/Periodic_4_hyperbolic_triangulation_2/css/customstyle.css
+
+PROJECT_NAME 			= "CGAL 5.1 - 2D Periodic Hyperbolic Triangulations"

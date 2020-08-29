@@ -1,0 +1,4 @@
+@INCLUDE = /home/jackcamp/Documents/cgal-public-dev/Documentation/doc/cmake-build-debug/doc_dxy/Generalized_map_defaults.dxy
+
+PROJECT_NAME                       =  "CGAL  - Generalized Maps"
+
