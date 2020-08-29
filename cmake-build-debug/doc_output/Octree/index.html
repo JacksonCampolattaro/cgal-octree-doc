@@ -1,0 +1,626 @@
+<!-- HTML header for doxygen 1.8.13-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="icon" type="image/png" href="../Manual/g-196x196-doc.png"/>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CGAL 5.1 - Octree: User Manual</title>
+<!-- <link href="../Manual/tabs.css" rel="stylesheet" type="text/css"/> -->
+<script type="text/javascript" src="../Manual/jquery.js"></script>
+<script type="text/javascript" src="../Manual/dynsections.js"></script>
+<!-- Manually include treeview and search to avoid bloat and to fix
+     paths to the directory Manual . -->
+<!-- $.treeview -->
+<!-- $.search -->
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../Manual/resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../Manual/search/searchdata.js"></script>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../Manual/search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../Manual/search/search.js"></script>
+<!-- Manually done below. -->
+<link href="../Manual/stylesheet.css" rel="stylesheet" type="text/css" />
+<!-- This should probably be an extrastylesheet instead of hardcoded. -->
+<link href="../Manual/cgal_stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+//<![CDATA[
+MathJax.Hub.Config(
+{
+  TeX: {
+      Macros: {
+          qprel: [ "{\\gtreqless}", 0],
+          qpx: [ "{\\mathbf{x}}", 0],
+          qpl: [ "{\\mathbf{l}}", 0],
+          qpu: [ "{\\mathbf{u}}", 0],
+          qpc: [ "{\\mathbf{c}}", 0],
+          qpb: [ "{\\mathbf{b}}", 0],
+          qpy: [ "{\\mathbf{y}}", 0],
+          qpw: [ "{\\mathbf{w}}", 0],
+          qplambda: [ "{\\mathbf{\\lambda}}", 0],
+          ssWpoint: [ "{\\bf #1}", 1],
+          ssWeight: [ "{w_{#1}}", 1],
+          dabs: [ "{\\parallel\\! #1 \\!\\parallel}", 1],
+          E: [ "{\\mathrm{E}}", 0],
+          A: [ "{\\mathrm{A}}", 0],
+          R: [ "{\\mathrm{R}}", 0],
+          N: [ "{\\mathrm{N}}", 0],
+          Q: [ "{\\mathrm{Q}}", 0],
+          Z: [ "{\\mathrm{Z}}", 0],
+          ccSum: [ "{\\sum_{#1}^{#2}{#3}}", 3],
+          ccProd: [ "{\\prod_{#1}^{#2}{#3}}", 3],
+          pyr: [ "{\\operatorname{Pyr}}", 0],
+          aff: [ "{\\operatorname{aff}}", 0],
+      }
+  }
+}
+);
+//]]>
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<script src="../Manual/hacks.js" type="text/javascript"></script>
+<script src="modules.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="back-nav">
+  <ul>
+    <li><a href="https://www.cgal.org/">cgal.org</a></li>
+    <li><a href="../Manual/index.html">Top</a></li>
+    <li><a href="../Manual/general_intro.html">Getting Started</a></li>
+    <li><a href="../Manual/tutorials.html">Tutorials</a></li>
+    <li><a href="../Manual/packages.html">Package Overview</a></li>
+    <li><a href="../Manual/how_to_cite_cgal.html">Acknowledging CGAL</a></li>
+  </ul>
+  <!-- In a package SEARCHENGINE = false, so we cannot use 
+       insertion. That's why we have to do it manually here. Notice
+       that we also take pngs from the Manual. -->
+  <div id="MSearchBox" class="MSearchBoxInactive">
+    <span class="left">
+      <img id="MSearchSelect" src="../Manual/search/mag_sel.png"
+           onmouseover="return searchBox.OnSearchSelectShow()"
+           onmouseout="return searchBox.OnSearchSelectHide()"
+           alt=""/>
+      <input type="text" id="MSearchField" value="Search" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)"
+             onblur="searchBox.OnSearchFieldFocus(false)"
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+    </span><span class="right">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../Manual/search/close.png" alt=""/></a>
+    </span>
+  </div>
+</div>
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CGAL 5.1 - Octree
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- Code below is usually inserted by doxygen when SEARCHENGINE =
+     true. Notice that the path to the search directory is adjusted to
+     the top-level.-->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../Manual/search",false,'Search');
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0"
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.18 -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('index.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">User Manual </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="Chapter_Octree"></a> </p> <div id="autotoc" class="toc"></div>  <dl class="section author"><dt>Author</dt><dd>Jackson Campolattaro</dd></dl>
+<h1><a class="anchor" id="Section_Octree_Introduction"></a>
+Introduction</h1>
+<p>An octree is a commonly used data structure that subdivides 3d space. The Octree package provides the Octree and Node classes.</p>
+<p>Note that the octree will often be outperformed by Spacial_searching's kD-tree. Octrees are most useful when implementing algorithms that require nodes without high aspect-ratios. Intersection and nearest-neighbor algorithms should be expected to perform worse than the kD-tree but they can be useful if the octree has already been constructed.</p>
+<h1><a class="anchor" id="Section_Octree_Building"></a>
+Building an Octree</h1>
+<p>Before an octree can be used for anything, the tree itself must be created. By default, the constructor returns a tree with a single (root) node that contains all the points. We can use the <code>refine</code> method to subdivide space further.</p>
+<h2><a class="anchor" id="Section_Octree_Point_Vector"></a>
+Building an Octree from a Vector of Points</h2>
+<p>The simplest way to create an octree is using a vector of points. The constructor generally expects a separate point-range and map, but the point-map defaults to CGAL's <code>Identity_property_map</code> if none is provided. That enables using a range that contains the points directly, because it's mapped directly to itself.</p>
+<p><b>Example</b> </p>
+<p>This example illustrates how to create an octree from a <code>std::vector</code>.</p>
+<p>An <code>std::vector&lt;Point_3&gt;</code> is manually filled with points. The vector is used as the point set, a <code>CGAL::Identity_property_map</code> is automatically set as the octree's map type, so a map doesn't need to be provided.</p>
+<p><br  />
+<b>File</b> <a class="el" href="Octree_2Octree_build_from_Point_vector_8cpp-example.html">Octree/Octree_build_from_Point_vector.cpp</a> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Simple_cartesian.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree/IO.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Type Declarations</span></div>
+<div class="line"><span class="keyword">typedef</span> CGAL::Simple_cartesian&lt;double&gt; Kernel;</div>
+<div class="line"><span class="keyword">typedef</span> Kernel::Point_3 Point;</div>
+<div class="line"><span class="keyword">typedef</span> std::vector&lt;Point&gt; Point_vector;</div>
+<div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Octree_1_1Octree.html">CGAL::Octree::Octree&lt;Point_vector&gt;</a> Octree;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Here, our point set is a vector</span></div>
+<div class="line">  Point_vector points;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Add a few points to the vector</span></div>
+<div class="line">  points.emplace_back(1, 1, 1);</div>
+<div class="line">  points.emplace_back(2, 1, -11);</div>
+<div class="line">  points.emplace_back(2, 1, 1);</div>
+<div class="line">  points.emplace_back(1, -2, 1);</div>
+<div class="line">  points.emplace_back(1, 1, 1);</div>
+<div class="line">  points.emplace_back(-1, 1, 1);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Create an octree from the points</span></div>
+<div class="line">  Octree octree(points);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Build the octree</span></div>
+<div class="line">  octree.refine(10, 20);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Print out the tree</span></div>
+<div class="line">  std::cout &lt;&lt; octree;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="Section_Octree_Point_Set"></a>
+Building an Octree from a Point_set_3</h2>
+<p>Using a <code>Point_set_3</code> is slightly more complicated, but it comes with a number of advantages. CGAL's Point set class has many useful features. Here we take advantage of its ability to save and load from files easily. The independent point-range and map may also come with a performance benefit.</p>
+<p><b>Example</b> </p>
+<p>This example illustrates how to create an octree from a <code>Point_set_3</code> loaded from a file. It also shows a more explicit way of setting the split criteria when refining the tree.</p>
+<p>An octree is constructed from the point set and its map. The tree is refined with a max-depth (deepest node allowed) of 10, and a bucket size (maximum number of points contained by a single node) of 20. The tree is then printed to the standard output.</p>
+<p>The split criterion is manually constructed and passed to the refine method.</p>
+<p><br  />
+<b>File</b> <a class="el" href="Octree_2Octree_build_from_Point_set_8cpp-example.html">Octree/Octree_build_from_Point_set.cpp</a> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Simple_cartesian.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree/IO.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Point_set_3.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Point_set_3/IO.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Type Declarations</span></div>
+<div class="line"><span class="keyword">typedef</span> CGAL::Simple_cartesian&lt;double&gt; Kernel;</div>
+<div class="line"><span class="keyword">typedef</span> Kernel::Point_3 Point;</div>
+<div class="line"><span class="keyword">typedef</span> CGAL::Point_set_3&lt;Point&gt; Point_set;</div>
+<div class="line"><span class="keyword">typedef</span> Point_set::Point_map Point_map;</div>
+<div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Octree_1_1Octree.html">CGAL::Octree::Octree&lt;Point_set, Point_map&gt;</a> Octree;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Point set will be used to hold our points</span></div>
+<div class="line">  Point_set points;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Load points from a file.</span></div>
+<div class="line">  std::ifstream stream((argc &gt; 1) ? argv[1] : <span class="stringliteral">&quot;data/cube.pwn&quot;</span>);</div>
+<div class="line">  stream &gt;&gt; points;</div>
+<div class="line">  <span class="keywordflow">if</span> (0 == points.number_of_points()) {</div>
+<div class="line"> </div>
+<div class="line">    std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: cannot read file&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordflow">return</span> EXIT_FAILURE;</div>
+<div class="line">  }</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;loaded &quot;</span> &lt;&lt; points.number_of_points() &lt;&lt; <span class="stringliteral">&quot; points\n&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Create an octree from the points</span></div>
+<div class="line">  Octree octree(points, points.point_map());</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Build the octree with a small bucket size, using a more verbose method</span></div>
+<div class="line">  octree.refine(<a class="code" href="structCGAL_1_1Octree_1_1Split__criterion_1_1Max__depth__or__bucket__size.html">CGAL::Octree::Split_criterion::Max_depth_or_bucket_size</a>(10, 2));</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Print out the tree</span></div>
+<div class="line">  std::cout &lt;&lt; octree;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="Section_Octree_Custom_Split_Criterion"></a>
+Building an Octree with a Custom Split Criterion</h2>
+<p>It's very easy to create your own criterion if the existing ones don't match your needs. For example, you might design a criterion which only splits nodes that contain exactly 4 points. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Link to <a class="el" href="structSplitCriterion.html" title="A SplitCriterion is a functor which determines whether an octree node needs to be split during refine...">SplitCriterion</a> concept</dd></dl>
+<p><b>Example</b> </p>
+<p>This example illustrates how to refine an octree using a split criterion that isn't provided by default.</p>
+<p>The criterion is a functor created by the user to determine whether a node needs to be split. This particular criterion sets a node's bucket size as a ratio of its depth. For example, for a ratio of 2, a node at depth 2 can hold 4 points, a node at depth 7 can hold 14.</p>
+<p><br  />
+<b>File</b> <a class="el" href="Octree_2Octree_build_with_custom_split_8cpp-example.html">Octree/Octree_build_with_custom_split.cpp</a> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Simple_cartesian.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree/IO.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Point_set_3.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Point_set_3/IO.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Type Declarations</span></div>
+<div class="line"><span class="keyword">typedef</span> CGAL::Simple_cartesian&lt;double&gt; Kernel;</div>
+<div class="line"><span class="keyword">typedef</span> Kernel::Point_3 Point;</div>
+<div class="line"><span class="keyword">typedef</span> Kernel::FT FT;</div>
+<div class="line"><span class="keyword">typedef</span> CGAL::Point_set_3&lt;Point&gt; Point_set;</div>
+<div class="line"><span class="keyword">typedef</span> Point_set::Point_map Point_map;</div>
+<div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Octree_1_1Octree.html">CGAL::Octree::Octree&lt;Point_set, Point_map&gt;</a> Octree;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Split Criterion</span></div>
+<div class="line"><span class="comment">// The criterion is a functor which returns a boolean value, whether a node needs to be split or not</span></div>
+<div class="line"><span class="keyword">struct </span>Split_by_ratio {</div>
+<div class="line"> </div>
+<div class="line">  std::size_t ratio;</div>
+<div class="line"> </div>
+<div class="line">  Split_by_ratio(std::size_t ratio) : ratio(ratio) {}</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Node&gt;</div>
+<div class="line">  <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> Node &amp;n)<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> n.size() &gt; (ratio * n.depth());</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Point set will be used to hold our points</span></div>
+<div class="line">  Point_set points;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Load points from a file.</span></div>
+<div class="line">  std::ifstream stream((argc &gt; 1) ? argv[1] : <span class="stringliteral">&quot;data/cube.pwn&quot;</span>);</div>
+<div class="line">  stream &gt;&gt; points;</div>
+<div class="line">  <span class="keywordflow">if</span> (0 == points.number_of_points()) {</div>
+<div class="line"> </div>
+<div class="line">    std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: cannot read file&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordflow">return</span> EXIT_FAILURE;</div>
+<div class="line">  }</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;loaded &quot;</span> &lt;&lt; points.number_of_points() &lt;&lt; <span class="stringliteral">&quot; points&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Create an octree from the points</span></div>
+<div class="line">  Octree octree(points, points.point_map());</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Build the octree using our custom split criterion</span></div>
+<div class="line">  octree.refine(Split_by_ratio(2.0));</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Print out the tree</span></div>
+<div class="line">  std::cout &lt;&lt; octree;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="Section_Octree_Traversal"></a>
+Traversal over an Octree</h1>
+<p><a class="el" href="classTraversal.html" title="A Traversal provides the functions needed to traverse the nodes of an octree using a Traversal_iterat...">Traversal</a> is the act of navigating among the nodes of the tree. The Octree and Node classes provide a number of different solutions for traversing the tree.</p>
+<h2><a class="anchor" id="Section_Octree_Manual_Traveral"></a>
+Manual Traversal</h2>
+<p>Because our octree is a form of connected acyclic undirected graph, it's possible to navigate between any two nodes. What that means in practice, is that given a pointer or reference to one node on the tree, it's possible to access any other node using the right set of operations. The node has functions that allow the user to access each of its children, as well as its parent (if it exists).</p>
+<p><b>Example</b> </p>
+<p>This example demonstrates ways of accessing different nodes of a tree, given a reference to one.</p>
+<p>If you have the root node, it's possible to get to its children using the subscript operator (<code>[]</code>). Values from 0-7 provide access to the different children. Using the operator on a leaf node is considered undefined behavior.</p>
+<p>For non-root nodes, it's possible to access parent nodes using the <code>parent</code> accessor. Note that the accessor returns a pointer and not a reference, calling the root node's parent accessor will return null.</p>
+<p>These accessors and operators can be chained to access any node in the tree in a single line of code.</p>
+<p><br  />
+<b>File</b> <a class="el" href="Octree_2Octree_traversal_manual_8cpp-example.html">Octree/Octree_traversal_manual.cpp</a> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Simple_cartesian.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree/IO.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Point_set_3.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Point_set_3/IO.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Type Declarations</span></div>
+<div class="line"><span class="keyword">typedef</span> CGAL::Simple_cartesian&lt;double&gt; Kernel;</div>
+<div class="line"><span class="keyword">typedef</span> Kernel::Point_3 Point;</div>
+<div class="line"><span class="keyword">typedef</span> CGAL::Point_set_3&lt;Point&gt; Point_set;</div>
+<div class="line"><span class="keyword">typedef</span> Point_set::Point_map Point_map;</div>
+<div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Octree_1_1Octree.html">CGAL::Octree::Octree&lt;Point_set, Point_map&gt;</a> Octree;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Point set will be used to hold our points</span></div>
+<div class="line">  Point_set points;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Load points from a file.</span></div>
+<div class="line">  std::ifstream stream((argc &gt; 1) ? argv[1] : <span class="stringliteral">&quot;data/cube.pwn&quot;</span>);</div>
+<div class="line">  stream &gt;&gt; points;</div>
+<div class="line">  <span class="keywordflow">if</span> (0 == points.number_of_points()) {</div>
+<div class="line"> </div>
+<div class="line">    std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: cannot read file&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordflow">return</span> EXIT_FAILURE;</div>
+<div class="line">  }</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;loaded &quot;</span> &lt;&lt; points.number_of_points() &lt;&lt; <span class="stringliteral">&quot; points\n&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Create an octree from the points</span></div>
+<div class="line">  Octree octree(points, points.point_map());</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Build the octree using the default arguments</span></div>
+<div class="line">  octree.refine();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Print out a few nodes</span></div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Navigation relative to the root node&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;the root node: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; octree.root() &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;the first child of the root node: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; octree.root()[0] &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;the fifth child: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; octree.root()[4] &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;the fifth child, accessed without the root keyword: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; octree[4] &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;the second child of the fourth child: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; octree.root()[4][1] &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;the second child of the fourth child, accessed without the root keyword: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; octree[4][1] &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Retrieve one of the deeper children</span></div>
+<div class="line">  <span class="keyword">const</span> Octree::Node &amp;cur = octree[3][2];</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Navigation relative to a child node&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;the third child of the fourth child: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; cur &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;the third child: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; *cur.parent() &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;the next sibling of the third child of the fourth child: &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; (*cur.parent())[cur.index().to_ulong() + 1] &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="Section_Octree_Preorder_Traversal"></a>
+Preorder Traversal</h2>
+<p>It's often useful to be able to iterate over the nodes of the tree in a particular order. For example, the stream operator <code>&lt;&lt;</code> uses a traversal to print out each node. A few traversals are provided, among them "Preorder" and "Postorder". To traverse a tree in preorder is to visit each parent immediately followed by its children, where in posterder traversal the children are visited first.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>This could use a bit more detail</dd></dl>
+<p><b>Example</b> </p>
+<p>This example illustrates how to use the provided traversals.</p>
+<p>A tree is constructed, and a traversal is used to create a range that can be iterated over using a for-each loop. The default output operator for the octree uses the preorder traversal to do a pretty-print of the tree structure. In this case, we print out the nodes of the tree without indentation instead.</p>
+<p><br  />
+<b>File</b> <a class="el" href="Octree_2Octree_traversal_preorder_8cpp-example.html">Octree/Octree_traversal_preorder.cpp</a> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Simple_cartesian.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree/IO.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Point_set_3.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Point_set_3/IO.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Type Declarations</span></div>
+<div class="line"><span class="keyword">typedef</span> CGAL::Simple_cartesian&lt;double&gt; Kernel;</div>
+<div class="line"><span class="keyword">typedef</span> Kernel::Point_3 Point;</div>
+<div class="line"><span class="keyword">typedef</span> CGAL::Point_set_3&lt;Point&gt; Point_set;</div>
+<div class="line"><span class="keyword">typedef</span> Point_set::Point_map Point_map;</div>
+<div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Octree_1_1Octree.html">CGAL::Octree::Octree&lt;Point_set, Point_map&gt;</a> Octree;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Point set will be used to hold our points</span></div>
+<div class="line">  Point_set points;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Load points from a file.</span></div>
+<div class="line">  std::ifstream stream((argc &gt; 1) ? argv[1] : <span class="stringliteral">&quot;data/cube.pwn&quot;</span>);</div>
+<div class="line">  stream &gt;&gt; points;</div>
+<div class="line">  <span class="keywordflow">if</span> (0 == points.number_of_points()) {</div>
+<div class="line"> </div>
+<div class="line">    std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: cannot read file&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordflow">return</span> EXIT_FAILURE;</div>
+<div class="line">  }</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;loaded &quot;</span> &lt;&lt; points.number_of_points() &lt;&lt; <span class="stringliteral">&quot; points\n&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Create an octree from the points</span></div>
+<div class="line">  Octree octree(points, points.point_map());</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Build the octree</span></div>
+<div class="line">  octree.refine();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Print out the octree using preorder traversal</span></div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;node : octree.traverse&lt;<a class="code" href="structCGAL_1_1Octree_1_1Traversal_1_1Preorder.html">CGAL::Octree::Traversal::Preorder</a>&gt;()) {</div>
+<div class="line"> </div>
+<div class="line">    std::cout &lt;&lt; node &lt;&lt; std::endl;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="Section_Octree_Acceleration"></a>
+Acceleration of Common Tasks</h1>
+<p>Once an octree is built, its structure can be used to accelerate different tasks.</p>
+<h2><a class="anchor" id="Section_Octree_Nearest_Neighbor"></a>
+Finding the Nearest Neighbor of a Point</h2>
+<p>The naive way of finding the nearest neighbor of a point requires finding the distance of every other point. An octree can be used to perform the same task in significantly less time. For large numbers of points, this can be a large enough difference to outweigh the time spent building the tree.</p>
+<p>Note that a kD-tree is expected to outperform the Octree for this task, it should be preferred unless features specific to the Octree are needed.</p>
+<p><b>Example</b> </p>
+<p>This example illustrates how to use an octree to accelerate the search for points close to a location.</p>
+<p>Points are loaded from a file and an octree is built. The nearest neighbor method is invoked for several input points. A k value of 1 is used to find the single closest point. Results are put in a vector, and then printed.</p>
+<p><br  />
+<b>File</b> <a class="el" href="Octree_2Octree_find_nearest_neighbor_8cpp-example.html">Octree/Octree_find_nearest_neighbor.cpp</a> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Simple_cartesian.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree/IO.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Point_set_3.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Point_set_3/IO.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Type Declarations</span></div>
+<div class="line"><span class="keyword">typedef</span> CGAL::Simple_cartesian&lt;double&gt; Kernel;</div>
+<div class="line"><span class="keyword">typedef</span> Kernel::Point_3 Point;</div>
+<div class="line"><span class="keyword">typedef</span> CGAL::Point_set_3&lt;Point&gt; Point_set;</div>
+<div class="line"><span class="keyword">typedef</span> Point_set::Point_map Point_map;</div>
+<div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Octree_1_1Octree.html">CGAL::Octree::Octree&lt;Point_set, Point_map&gt;</a> Octree;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Point set will be used to hold our points</span></div>
+<div class="line">  Point_set points;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Load points from a file.</span></div>
+<div class="line">  std::ifstream stream((argc &gt; 1) ? argv[1] : <span class="stringliteral">&quot;data/cube.pwn&quot;</span>);</div>
+<div class="line">  stream &gt;&gt; points;</div>
+<div class="line">  <span class="keywordflow">if</span> (0 == points.number_of_points()) {</div>
+<div class="line"> </div>
+<div class="line">    std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: cannot read file&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordflow">return</span> EXIT_FAILURE;</div>
+<div class="line">  }</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;loaded &quot;</span> &lt;&lt; points.number_of_points() &lt;&lt; <span class="stringliteral">&quot; points&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Create an octree from the points</span></div>
+<div class="line">  Octree octree(points, points.point_map());</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Build the octree</span></div>
+<div class="line">  octree.refine(10, 20);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Find the nearest points to a few locations</span></div>
+<div class="line">  std::vector&lt;Point&gt; points_to_find = {</div>
+<div class="line">          {0, 0, 0},</div>
+<div class="line">          {1, 1, 1},</div>
+<div class="line">          {-1, -1, -1},</div>
+<div class="line">          {-0.46026, -0.25353, 0.32051},</div>
+<div class="line">          {-0.460261, -0.253533, 0.320513}</div>
+<div class="line">  };</div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keyword">auto</span> p : points_to_find) {</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// The nearest points will be placed in this vector</span></div>
+<div class="line">    std::vector&lt;Point&gt; nearest_points;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// k=1 to find the single closest point</span></div>
+<div class="line">    octree.nearest_k_neighbors(p, 1, std::back_inserter(nearest_points));</div>
+<div class="line"> </div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;the nearest point to (&quot;</span> &lt;&lt; p &lt;&lt; <span class="stringliteral">&quot;) is (&quot;</span> &lt;&lt; nearest_points[0] &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="Section_Octree_Grade"></a>
+Grading an octree</h2>
+<p><b>Example</b> </p>
+<p>This example demonstrates how to use the grade method to eliminate large jumps in depth within the octree.</p>
+<p>A tree is created such that one node is split many more times than those it borders. <code>grade()</code> splits the octree's nodes so that adjacent nodes never have a difference in depth greater than one. The tree is printed before and after grading, so that the differences are visible.</p>
+<p><br  />
+<b>File</b> <a class="el" href="Octree_2Octree_grade_8cpp-example.html">Octree/Octree_grade.cpp</a> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Simple_cartesian.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;CGAL/Octree/IO.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Type Declarations</span></div>
+<div class="line"><span class="keyword">typedef</span> CGAL::Simple_cartesian&lt;double&gt; Kernel;</div>
+<div class="line"><span class="keyword">typedef</span> Kernel::Point_3 Point;</div>
+<div class="line"><span class="keyword">typedef</span> std::vector&lt;Point&gt; Point_vector;</div>
+<div class="line"><span class="keyword">typedef</span> <a class="code" href="classCGAL_1_1Octree_1_1Octree.html">CGAL::Octree::Octree&lt;Point_vector&gt;</a> Octree;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv) {</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Here, our point set is a vector</span></div>
+<div class="line">  Point_vector points;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Add a few points to the vector, most of which are in one region</span></div>
+<div class="line">  points.emplace_back(1, 1, 1);</div>
+<div class="line">  points.emplace_back(2, 1, -11);</div>
+<div class="line">  points.emplace_back(2, 1, 1);</div>
+<div class="line">  points.emplace_back(1, -2, 1);</div>
+<div class="line">  points.emplace_back(1, 1, 1);</div>
+<div class="line">  points.emplace_back(-1, 1, 1);</div>
+<div class="line">  points.emplace_back(-1.1, 1, 1);</div>
+<div class="line">  points.emplace_back(-1.01, 1, 1);</div>
+<div class="line">  points.emplace_back(-1.001, 1, 1);</div>
+<div class="line">  points.emplace_back(-1.0001, 1, 1);</div>
+<div class="line">  points.emplace_back(-1.0001, 1, 1);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Create an octree from the points</span></div>
+<div class="line">  Octree octree(points);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Build the octree with a small bucket size, so we get a deep node</span></div>
+<div class="line">  octree.refine(10, 2);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Print out the tree</span></div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\nUn-graded tree&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; octree &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Grade the tree to eliminate large jumps in depth</span></div>
+<div class="line">  octree.grade();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Print out the tree again</span></div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\nGraded tree&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  std::cout &lt;&lt; octree &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="Section_Octree_Performance"></a>
+Performance</h1>
+<h2><a class="anchor" id="Section_Octree_Performance_Comparison"></a>
+Comparison with kD Tree</h2>
+<p>e.g. When is an octree the right choice?</p>
+<h1><a class="anchor" id="Section_Octree_Software_Design"></a>
+Software Design</h1>
+<h2><a class="anchor" id="Subsection_Octree_Splitting_Rules"></a>
+Splitting Rules</h2>
+<h2><a class="anchor" id="Subsection_Octree_Walker_Rules"></a>
+Walker Rules</h2>
+<h1><a class="anchor" id="Section_Octree_History"></a>
+History</h1>
+<p>This package was developed by Jackson Campolatarro as part of the Google Summer of Code 2020, based on a prototype code by Tong Zhao and Cédric Portaneri, under the supervision of Simon Giraudot and with the kind help and advice of Pierre Alliez </p>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="astructCGAL_1_1Octree_1_1Split__criterion_1_1Max__depth__or__bucket__size_html"><div class="ttname"><a href="structCGAL_1_1Octree_1_1Split__criterion_1_1Max__depth__or__bucket__size.html">CGAL::Octree::Split_criterion::Max_depth_or_bucket_size</a></div><div class="ttdoc">criterion to split nodes when they are less than a depth and they contain more than a number of items</div><div class="ttdef"><b>Definition:</b> Split_criterion.h:59</div></div>
+<div class="ttc" id="aclassCGAL_1_1Octree_1_1Octree_html"><div class="ttname"><a href="classCGAL_1_1Octree_1_1Octree.html">CGAL::Octree::Octree</a></div><div class="ttdoc">a data structure for efficient computations in 3D space.</div><div class="ttdef"><b>Definition:</b> Octree.h:62</div></div>
+<div class="ttc" id="astructCGAL_1_1Octree_1_1Traversal_1_1Preorder_html"><div class="ttname"><a href="structCGAL_1_1Octree_1_1Traversal_1_1Preorder.html">CGAL::Octree::Traversal::Preorder</a></div><div class="ttdoc">walker for preorder traversal</div><div class="ttdef"><b>Definition:</b> Traversal.h:85</div></div>
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<!-- The footer div is not part of the default but we require it to
+move the footer to the bottom of the page. -->
+<div id="footer">
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
+  </ul>
+</div>
+</div>
+</body>
+</html>
